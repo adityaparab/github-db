@@ -10,7 +10,7 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "dev": "concurrently -k \"npm run tsc:dev\" \"npm run test:dev\" \"npm run nodemon\"",
-    "nodemon": "nodemon ./dist/index.js",
+    "nodemon": "nodemon ./dist/index.js -- --config ./config.json --port 3000",
     "predev": "npm run clean && npm run tsc",
     "test": "jest",
     "test:dev": "jest --watch",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.3",
     "@types/node": "^10.11.4",
+    "@types/yargs": "^12.0.1",
     "concurrently": "^4.0.1",
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",

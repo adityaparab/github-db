@@ -1,11 +1,11 @@
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red.svg)
-![GitHub forks](https://img.shields.io/github/forks/adityaparab/ghdb.svg)
-![GitHub issues](https://img.shields.io/github/issues/adityaparab/ghdb.svg)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/adityaparab/ghdb.svg)
-![GitHub contributors](https://img.shields.io/github/contributors/adityaparab/ghdb.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/adityaparab/ghdb.svg)
+![GitHub forks](https://img.shields.io/github/forks/adityaparab/github-db.svg)
+![GitHub issues](https://img.shields.io/github/issues/adityaparab/github-db.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/adityaparab/github-db.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/adityaparab/github-db.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/adityaparab/github-db.svg)
 
-# GHDB - Github as a Database :fire:
+# github-db - Github as a Database :fire:
 
 ## The issue
 
@@ -21,4 +21,4 @@ This project solves the issue by using a github repository to store database.
 
 ## Contributions
 
-Refer to [Contribution.md](https://github.com/adityaparab/ghdb/blob/master/CONTRIBUTING.md) for more details on how to contribute.
+Refer to [Contribution.md](https://github.com/adityaparab/github-db/blob/master/CONTRIBUTING.md) for more details on how to contribute.
