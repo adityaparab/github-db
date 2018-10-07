@@ -1,0 +1,49 @@
+{
+  "name": "@adityaparab/github-db",
+  "version": "0.0.1",
+  "description": "Using GitHub as a database",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ghdb": "./bin/ghdb.js"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "concurrently -k \"npm run tsc:dev\" \"npm run test:dev\" \"npm run nodemon\"",
+    "nodemon": "nodemon ./dist/index.js",
+    "predev": "npm run clean && npm run tsc",
+    "test": "jest",
+    "test:dev": "jest --watch",
+    "tsc": "tsc",
+    "tsc:dev": "tsc --watch --declaration false",
+    "predeploy": "npm run clean",
+    "deploy": "npm run test && npm run tsc",
+    "prepublish": "npm run deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityaparab/github-db.git"
+  },
+  "keywords": [],
+  "author": "Aditya Parab <contact.adityaparab@gmail.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/adityaparab/github-db/issues"
+  },
+  "homepage": "https://github.com/adityaparab/github-db#readme",
+  "devDependencies": {
+    "@types/jest": "^23.3.3",
+    "@types/node": "^10.11.4",
+    "concurrently": "^4.0.1",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.4",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3",
+    "yargs": "^12.0.2"
+  }
+}
