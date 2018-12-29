@@ -4,7 +4,9 @@ import { IInputArgs } from './IInputArgs';
 
 export const TYPES = {
     DataCacheService: Symbol('DataCacheService'),
+    DatabaseService: Symbol('DatabaseService'),
     EnvironmentSetup: Symbol('EnvironmentSetup'),
+    GHDBServer: Symbol('GHDBServer'),
     IConfigFileOptions: Symbol('IConfigFileOptions'),
     IGithubCommandService: Symbol('IGithubCommandService'),
     IGithubDatabase: Symbol('IGithubDatabase'),

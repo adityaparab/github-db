@@ -62,3 +62,4 @@ typings/
 
 #build output
 dist
+config.json

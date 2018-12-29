@@ -7,6 +7,7 @@ export interface IDataCacheService {
   getGithubUsername: () => string;
   setGithubUsername: (githubUsername: string) => void;
 
+  getGithubPassword: () => string;
   setGithubPassword: (githubPassword: string) => void;
 
   getGithubRepoUrl: () => string;
