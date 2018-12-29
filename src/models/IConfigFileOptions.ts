@@ -4,4 +4,5 @@ export interface IConfigFileOptions {
     repo: string;
     username: string;
   };
+  port: number;
 }

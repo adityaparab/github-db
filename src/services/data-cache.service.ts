@@ -1,42 +1,54 @@
-import { join, resolve } from 'path';
+import { injectable } from 'inversify';
 
-class DataCacheService {
+export interface IDataCacheService {
+  getConfigFilePath: () => string;
+  setConfigFilePath: (configFilePath: string) => void;
+
+  getGithubUsername: () => string;
+  setGithubUsername: (githubUsername: string) => void;
+
+  setGithubPassword: (githubPassword: string) => void;
+
+  getGithubRepoUrl: () => string;
+  setGithubRepoUrl: (githubRepoUrl: string) => void;
+}
+
+@injectable()
+export class DataCacheService implements IDataCacheService {
   private ConfigFilePath: string = '';
   private GithubUsername: string = '';
   private GithubPassword: string = '';
-  private GuthubRepoUrl: string = '';
+  private GithubRepoUrl: string = '';
 
-  public get configFilePath(): string {
+  public getConfigFilePath(): string {
     return this.ConfigFilePath;
   }
 
-  public set configFilePath(configFilePath: string) {
+  public setConfigFilePath(configFilePath: string) {
     this.ConfigFilePath = configFilePath;
   }
 
-  public get githubUsername(): string {
+  public getGithubUsername(): string {
     return this.GithubUsername;
   }
 
-  public set githubUsername(githubUsername: string) {
+  public setGithubUsername(githubUsername: string) {
     this.GithubUsername = githubUsername;
   }
 
-  public get githubPassword(): string {
+  public getGithubPassword() {
     return this.GithubPassword;
   }
 
-  public set githubPassword(githubPassword: string) {
+  public setGithubPassword(githubPassword: string) {
     this.GithubPassword = githubPassword;
   }
 
-  public get guthubRepoUrl(): string {
-    return this.GuthubRepoUrl;
+  public getGithubRepoUrl(): string {
+    return this.GithubRepoUrl;
   }
 
-  public set guthubRepoUrl(guthubRepoUrl: string) {
-    this.GuthubRepoUrl = guthubRepoUrl;
+  public setGithubRepoUrl(githubRepoUrl: string) {
+    this.GithubRepoUrl = githubRepoUrl;
   }
 }
-
-export const DataCache = new DataCacheService();
