@@ -3,10 +3,11 @@ import { GithubDatabase } from './GithubDatabase';
 import { IGithubDatabase, TYPES } from './models';
 import { EnvironmentSetup } from './modules/environment/EnvironmentSetup';
 import { VerifyGit } from './modules/git/VerfiyGit';
+import { GHDBServer } from './modules/server/GHDBServer';
+import { GHDBServerRouter } from './modules/server/routes';
 import { DataCacheService, IDataCacheService } from './services/data-cache.service';
 import { DatabaseService, IDatabaseService } from './services/Database.service';
 import { GithubCommandService, IGithubCommandService } from './services/GithubCommand.service';
-import { GHDBServer } from './modules/server/GHDBServer';
 
 export const GithubDatabaseContainer: Container = new Container();
 
@@ -42,4 +43,9 @@ GithubDatabaseContainer
 GithubDatabaseContainer
     .bind<IDatabaseService>(TYPES.DatabaseService)
     .to(DatabaseService)
+    .inSingletonScope();
+
+GithubDatabaseContainer
+    .bind<GHDBServerRouter>(TYPES.GHDBServerRouter)
+    .to(GHDBServerRouter)
     .inSingletonScope();

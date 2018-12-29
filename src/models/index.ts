@@ -7,6 +7,7 @@ export const TYPES = {
     DatabaseService: Symbol('DatabaseService'),
     EnvironmentSetup: Symbol('EnvironmentSetup'),
     GHDBServer: Symbol('GHDBServer'),
+    GHDBServerRouter: Symbol('GHDBServerRouter'),
     IConfigFileOptions: Symbol('IConfigFileOptions'),
     IGithubCommandService: Symbol('IGithubCommandService'),
     IGithubDatabase: Symbol('IGithubDatabase'),

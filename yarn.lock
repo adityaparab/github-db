@@ -73,7 +73,15 @@
   dependencies:
     reflect-metadata "*"
 
-"@types/restify@^7.2.6":
+"@types/restify-cors-middleware@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/restify-cors-middleware/-/restify-cors-middleware-1.0.1.tgz#6c230c53a419eb3af83eeaabbcbc4771f25299e9"
+  integrity sha512-+S/FClLh8Wnw970RYEJ2OmdZDFwOR2GCf2hGqaB+fLdX3pRFb7WYJJHh6jN7Lrw2GiZ6LfybwgANExEC64x+Cg==
+  dependencies:
+    "@types/node" "*"
+    "@types/restify" "*"
+
+"@types/restify@*", "@types/restify@^7.2.6":
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/@types/restify/-/restify-7.2.6.tgz#0b63688d3d628cc1f8ed7c685dc52d013648384d"
   integrity sha512-gg6yKn5nQSGH+b/T6Y7CbFbkm8+rTsGEYzrUjzZk+suRLZpnMhBjoTHh/AcD3yh/lDrOq31K9gkBo25IbI2GaQ==
@@ -88,6 +96,11 @@
   integrity sha512-N9LBlbVRRYq6HgYpPkqQc3a9HJ/iEtVZToW6xlTtJiMhmRJ7jJdV7TaZQJw/Ve/1ePUsQiCTDc4JMuzzag94GA==
   dependencies:
     "@types/node" "*"
+
+"@types/uniqid@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@types/uniqid/-/uniqid-4.1.2.tgz#83c56995419696ffc6c7abd268177dac2c6f13c9"
+  integrity sha512-ZXl2rFZtJ6kdk7uureET6B3ebhoMhlJtiLRqhk5atKbc6YgabpxSjDZRPksbUdQT7ulIzg2X08e5esVJ2AAVkQ==
 
 "@types/yargs@^12.0.1":
   version "12.0.4"
@@ -259,6 +272,11 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
+
+assert-plus@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-0.1.5.tgz#ee74009413002d84cec7219c6ac811812e723160"
+  integrity sha1-7nQAlBMALYTOxyGcasgRgS5yMWA=
 
 assign-symbols@^1.0.0:
   version "1.0.0"
@@ -3719,6 +3737,13 @@ resolve@1.x, resolve@^1.3.2:
   dependencies:
     path-parse "^1.0.6"
 
+restify-cors-middleware@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/restify-cors-middleware/-/restify-cors-middleware-1.1.1.tgz#06688502fa08b8c62783103844c87dcfc30dcf3e"
+  integrity sha1-BmiFAvoIuMYngxA4RMh9z8MNzz4=
+  dependencies:
+    assert-plus "^1.0.0"
+
 restify-errors@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/restify-errors/-/restify-errors-5.0.0.tgz#668717e100683eec6ce0d515f89ff1dbec254a8d"
@@ -3729,6 +3754,13 @@ restify-errors@^5.0.0:
     verror "^1.8.1"
   optionalDependencies:
     safe-json-stringify "^1.0.3"
+
+restify-router@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/restify-router/-/restify-router-0.5.1.tgz#136bc92285c54911b1123ac13956c0b1d59d25da"
+  integrity sha512-DBv4Bxl/MCYgv6KQ2FIfeBo/tetNPM6xdFOY80muJ/VvIgyUdnho2tcU87SXLJXP/Q9Ahf5vKED93+em7lfCBQ==
+  dependencies:
+    assert-plus "^0.1.5"
 
 restify@^7.3.0:
   version "7.3.0"
@@ -4404,6 +4436,11 @@ union-value@^1.0.0:
     get-value "^2.0.6"
     is-extendable "^0.1.1"
     set-value "^0.4.3"
+
+uniqid@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/uniqid/-/uniqid-5.0.3.tgz#917968310edc868d50df6c44f783f32c7d80fac1"
+  integrity sha512-R2qx3X/LYWSdGRaluio4dYrPXAJACTqyUjuyXHoJLBUOIfmMcnYOyY2d6Y4clZcIz5lK6ZaI0Zzmm0cPfsIqzQ==
 
 unique-string@^1.0.0:
   version "1.0.0"
