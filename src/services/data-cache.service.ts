@@ -34,7 +34,7 @@ export class DataCacheService implements IDataCacheService {
   }
 
   public setGithubUsername(githubUsername: string) {
-    this.GithubUsername = githubUsername;
+    this.GithubUsername = encodeURIComponent(githubUsername);
   }
 
   public getGithubPassword() {
@@ -42,7 +42,7 @@ export class DataCacheService implements IDataCacheService {
   }
 
   public setGithubPassword(githubPassword: string) {
-    this.GithubPassword = githubPassword;
+    this.GithubPassword = encodeURIComponent(githubPassword);
   }
 
   public getGithubRepoUrl(): string {
