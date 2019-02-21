@@ -1,4 +1,5 @@
 import { injectable } from 'inversify';
+import { join, parse, ParsedPath } from 'path';
 
 export interface IDataCacheService {
   getConfigFilePath: () => string;
@@ -12,6 +13,11 @@ export interface IDataCacheService {
 
   getGithubRepoUrl: () => string;
   setGithubRepoUrl: (githubRepoUrl: string) => void;
+
+  getGHDBServerPort: () => number;
+  setGHDBServerPort: (port: number) => void;
+
+  getRepoCheckoutLocation: () => string;
 }
 
 @injectable()
@@ -20,12 +26,18 @@ export class DataCacheService implements IDataCacheService {
   private GithubUsername: string = '';
   private GithubPassword: string = '';
   private GithubRepoUrl: string = '';
+  private GHDBServerPort: number = 0;
+
+  private RepoFolderName: string = '';
+  private RepoCheckoutLocation: string = '';
 
   public getConfigFilePath(): string {
     return this.ConfigFilePath;
   }
 
   public setConfigFilePath(configFilePath: string) {
+    const path: ParsedPath = parse(configFilePath);
+    this.RepoCheckoutLocation = path.dir;
     this.ConfigFilePath = configFilePath;
   }
 
@@ -50,6 +62,20 @@ export class DataCacheService implements IDataCacheService {
   }
 
   public setGithubRepoUrl(githubRepoUrl: string) {
+    const path: ParsedPath = parse(githubRepoUrl);
+    this.RepoFolderName = path.name;
     this.GithubRepoUrl = githubRepoUrl;
+  }
+
+  public getGHDBServerPort(): number {
+    return this.GHDBServerPort;
+  }
+
+  public setGHDBServerPort(port: number): void {
+    this.GHDBServerPort = port;
+  }
+
+  public getRepoCheckoutLocation() {
+    return join(this.RepoCheckoutLocation, this.RepoFolderName);
   }
 }
