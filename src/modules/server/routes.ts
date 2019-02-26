@@ -48,7 +48,6 @@ export class GHDBServerRouter {
     const { collectionName } = req.params;
     const database = this.databaseService.getDatabase();
     let currentCollection = database[collectionName];
-    console.log('BEFORE:: ', currentCollection);
     const body = { ...req.body, id: uniqid() };
     if (currentCollection && Array.isArray(currentCollection)) {
       currentCollection.push(body);
@@ -56,17 +55,15 @@ export class GHDBServerRouter {
       database[collectionName] = [body];
       currentCollection = database[collectionName];
     }
-    this.databaseService.updateDatabase(database).then(() => {
-      console.log('AFTER:: ', currentCollection);
-      this.gitAdd
-        .execute()
-        .then(() => this.gitCommit.execute())
-        .then(() => this.gitPush.execute())
-        .then(() => {
-          res.status(200);
-          res.json(currentCollection);
-        });
-    });
+    this.databaseService
+      .updateDatabase(database)
+      .then(() => this.gitAdd.execute())
+      .then(() => this.gitCommit.execute())
+      .then(() => this.gitPush.execute())
+      .then(() => {
+        res.status(200);
+        res.json(currentCollection);
+      });
   }
 
   private PutRequestHandler(req: Request, res: Response, next: Next): void {
@@ -83,15 +80,12 @@ export class GHDBServerRouter {
       database[collectionName] = updatedCollection;
       this.databaseService
         .updateDatabase(database)
+        .then(() => this.gitAdd.execute())
+        .then(() => this.gitCommit.execute())
+        .then(() => this.gitPush.execute())
         .then(() => {
-          this.gitAdd
-            .execute()
-            .then(() => this.gitCommit.execute())
-            .then(() => this.gitPush.execute())
-            .then(() => {
-              res.status(200);
-              res.json(updatedCollection);
-            });
+          res.status(200);
+          res.json(updatedCollection);
         })
         .catch((error: any) => {
           res.status(500);
@@ -116,15 +110,12 @@ export class GHDBServerRouter {
         database[collectionName] = updatedCollection;
         this.databaseService
           .updateDatabase(database)
+          .then(() => this.gitAdd.execute())
+          .then(() => this.gitCommit.execute())
+          .then(() => this.gitPush.execute())
           .then(() => {
-            this.gitAdd
-              .execute()
-              .then(() => this.gitCommit.execute())
-              .then(() => this.gitPush.execute())
-              .then(() => {
-                res.status(200);
-                res.json(updatedCollection);
-              });
+            res.status(200);
+            res.json(updatedCollection);
           })
           .catch((error: any) => {
             res.status(500);

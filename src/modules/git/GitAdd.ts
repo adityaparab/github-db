@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify';
 
 import { TYPES } from '../../models/index';
 import { DataCacheService } from '../../services/data-cache.service';
-import {DatabaseService} from '../../services/Database.service';
+import { DatabaseService } from '../../services/Database.service';
 import { GitCommand } from './GitCommand';
 
 @injectable()
