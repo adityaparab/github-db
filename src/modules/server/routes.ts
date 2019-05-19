@@ -1,7 +1,16 @@
-import { inject, injectable } from 'inversify';
-import { Next, Request, Response, Server } from 'restify';
+import {
+  inject,
+  injectable
+} from 'inversify';
+import {
+  Next,
+  Request,
+  Response,
+  Server
+} from 'restify';
 import { Router } from 'restify-router';
 import uniqid from 'uniqid';
+
 import { TYPES } from '../../models';
 import { DatabaseService } from '../../services/Database.service';
 import { GitAdd } from '../git/GitAdd';
@@ -16,10 +25,11 @@ export class GHDBServerRouter {
     @inject(TYPES.GitAdd) private gitAdd: GitAdd,
     @inject(TYPES.GitCommit) private gitCommit: GitCommit,
     @inject(TYPES.GitPush) private gitPush: GitPush
-  ) {}
+  ) { }
 
   public configure(serverInstance: Server): void {
     this.router.get('/:collectionName', this.GetRequestHandler.bind(this));
+    this.router.get('/:collectionName/:id', this.GetRequestHandler.bind(this));
     this.router.post('/:collectionName', this.PostRequestHandler.bind(this));
     this.router.put('/:collectionName/:id', this.PutRequestHandler.bind(this));
     this.router.del(
@@ -34,8 +44,14 @@ export class GHDBServerRouter {
     const database = this.databaseService.getDatabase();
     const currentCollection = database[req.params.collectionName];
 
+    const id = req.params.id;
+
     if (currentCollection) {
-      res.json(currentCollection);
+      if (id) {
+        res.json(currentCollection.find((c: any) => c.id === id));
+      } else {
+        res.json(currentCollection);
+      }
     } else {
       res.status(404);
       res.json({

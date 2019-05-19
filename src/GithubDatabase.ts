@@ -1,8 +1,19 @@
-import { Answers, prompt, Question, Questions } from 'inquirer';
-import { inject, injectable } from 'inversify';
+import {
+  Answers,
+  prompt,
+  Question,
+  Questions
+} from 'inquirer';
+import {
+  inject,
+  injectable
+} from 'inversify';
 
 import { GenericError } from './errors';
-import { IGithubDatabase, TYPES } from './models';
+import {
+  IGithubDatabase,
+  TYPES
+} from './models';
 import { EnvironmentSetup } from './modules/environment/EnvironmentSetup';
 import { VerifyGit } from './modules/git/VerfiyGit';
 import { GHDBServer } from './modules/server/GHDBServer';
@@ -29,16 +40,16 @@ export class GithubDatabase implements IGithubDatabase {
   ) {}
 
   public init() {
-    prompt(questions).then((answers: Answers) => {
-      console.log(answers);
-    });
+    // prompt(questions).then((answers: Answers) => {
+    //   console.log(answers);
+    // });
 
-    // this.environmentSetup
-    //   .init()
-    //   .then(() => this.verifyGit.init())
-    //   .then(() => this.ghdbServer.init())
-    //   .catch((error: GenericError) => {
-    //     console.error(error);
-    //   });
+    this.environmentSetup
+      .init()
+      .then(() => this.verifyGit.init())
+      .then(() => this.ghdbServer.init())
+      .catch((error: GenericError) => {
+        console.error(error);
+      });
   }
 }

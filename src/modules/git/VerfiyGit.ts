@@ -1,9 +1,19 @@
 import chalk from 'chalk';
-import { exec, spawn } from 'child_process';
+import {
+  exec,
+  spawn
+} from 'child_process';
 import { exists } from 'fs-extra';
-import { inject, injectable } from 'inversify';
+import {
+  inject,
+  injectable
+} from 'inversify';
 import path from 'path';
-import { defer, Promise } from 'q';
+import {
+  defer,
+  Promise
+} from 'q';
+
 import { TYPES } from '../../models';
 import { IDataCacheService } from '../../services/data-cache.service';
 import { IGithubCommandService } from '../../services/GithubCommand.service';
@@ -57,9 +67,19 @@ export class VerifyGit {
         const deferred = defer<void>();
         const { promise, resolve } = deferred;
 
+        console.log(process.cwd());
+
         const gitCloneCommand = spawn('git', ['clone', this.gitCloneUrl], { cwd: process.cwd() });
         gitCloneCommand.stdout.setEncoding('utf8');
         gitCloneCommand.stderr.setEncoding('utf8');
+
+        gitCloneCommand.stderr.on('data', (msg: string) => {
+            console.log(msg);
+        });
+
+        gitCloneCommand.stdout.on('data', (msg: string) => {
+            console.log(msg);
+        });
 
         gitCloneCommand.on('close', (msg: string) => {
             resolve();

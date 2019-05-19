@@ -21,7 +21,8 @@
     "deploy": "npm run lint && npm run test && npm run tsc",
     "prepublish": "npm run deploy",
     "lint": "tslint --project ./",
-    "lint:fix": "tslint --project ./ --fix"
+    "lint:fix": "tslint --project ./ --fix",
+    "ghdb": "ghdb --config ./config.json"
   },
   "repository": {
     "type": "git",
