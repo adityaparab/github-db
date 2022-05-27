@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^8.0.0",
     "inquirer": "^6.2.2",
     "inversify": "^5.0.1",
     "joi": "^14.3.0",
